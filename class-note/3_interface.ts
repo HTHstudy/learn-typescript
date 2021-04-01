@@ -1,0 +1,66 @@
+interface User {
+  age: number;
+  name: string;
+}
+
+// 변수에 인터페이스 활용
+let seho: User = {
+  age: 12,
+  name: 'hth',
+};
+
+// 함수에 인터페이스 활용
+function getUser(user: User) {
+  console.log(user);
+}
+const capt = {
+  name: '캡틴',
+  age: 11,
+};
+getUser(capt);
+
+// 함수의 스펙(구조)에 인터페이스를 할용
+interface SumFunction {
+  (a: number, b: number): number;
+}
+var sum: SumFunction;
+var sum = function (a: number, b: number): number {
+  return a + b;
+};
+
+// 인덱싱
+interface StringArray {
+  [index: number]: string;
+}
+
+var arr: StringArray = ['a', 'b', 'c'];
+// arr[0] = 10;
+
+// 딕셔너리 패턴
+interface StringRegexDictionary {
+  [key: string]: RegExp;
+}
+
+var obj: StringRegexDictionary = {
+  //   sth: /abc/,
+  cssFile: /\.css$/, // .css로 끝나는 확장자를 가진 파일
+  jsFile: /\.js$/, // .js로 끝나는 확장자를 가진 파일
+};
+
+Object.keys(obj).forEach((value) => {});
+
+// 인터페이스 확장
+interface Person {
+  name: string;
+  age: number;
+}
+
+interface Developer extends Person {
+  language: string;
+}
+
+var king: Developer = {
+  name: 'hth',
+  age: 22,
+  language: 'javascript',
+};
